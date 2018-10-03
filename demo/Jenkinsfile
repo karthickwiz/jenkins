@@ -4,6 +4,7 @@ pipeline {
         stage('Example') {
             steps {
                 echo 'Hello World'
+                git clean -fdx
                // bat 'set'
                 echo 'done'
             }
