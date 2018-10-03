@@ -12,6 +12,11 @@ pipeline {
         git url: 'https://github.com/karthickwiz/jenkins.git'
              }
     }
+         stage ('Clone') {
+             steps {
+        bat 'gradlew.bat clean build'
+             }
+    }
     }
     post { 
         always { 
