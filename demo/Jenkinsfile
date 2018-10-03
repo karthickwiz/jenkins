@@ -4,8 +4,7 @@ pipeline {
         stage('Example') {
             steps {
                 echo 'Hello World'
-                cd demo/
-                bat 'gradlew.bat'
+                bat 'set'
             }
         }
     }
