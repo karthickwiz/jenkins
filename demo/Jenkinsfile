@@ -3,10 +3,7 @@ pipeline {
     stages {
         stage('Example') {
             steps {
-                echo 'Hello World'
-                git clean -fdx
-               // bat 'set'
-                echo 'done'
+                echo 'Hello World'               
             }
         }
     }
