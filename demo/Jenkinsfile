@@ -4,7 +4,7 @@ pipeline {
         stage('Example') {
             steps {
                 echo 'Hello World'
-                sh 'gradle --version'
+                gradle --version
             }
         }
     }
