@@ -29,7 +29,7 @@ pipeline {
         withSonarQubeEnv('clsd') {
       // requires SonarQube Scanner for Gradle 2.1+
       // It's important to add --info because of SONARJNKNS-281
-        bat './gradlew --info sonarqube'
+        bat 'gradlew --info sonarqube'
         
         echo 'sonar report'
        //   bat 'gradle build --info sonarqube'
