@@ -18,7 +18,7 @@ pipeline {
         stage('try') {
           steps {
              bat 'echo changing path....'\
-             bat 'cd E:\git\repo\demo'
+             bat 'cd E:\\git\\repo\\demo'
              bat 'gradle build'
                bat 'echo builded....'    
             
