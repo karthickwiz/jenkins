@@ -25,6 +25,7 @@ pipeline {
           }
        }
    stage('SonarQube analysis') {
+        steps {
     withSonarQubeEnv('clsd') {
       // requires SonarQube Scanner for Gradle 2.1+
       // It's important to add --info because of SONARJNKNS-281
@@ -32,6 +33,7 @@ pipeline {
         echo 'sonar report'
     }
   }
+   }
     }
     post { 
         always { 
