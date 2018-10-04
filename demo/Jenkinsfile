@@ -25,8 +25,10 @@ pipeline {
           }
        }
   stage('SonarQube analysis') {
+      
+       steps {
   withSonarQubeEnv('clsd') {
-      steps {
+     
       withCredentials([string(credentialsId: 'SONAR_TOKEN', variable: 'SONAR_TOKEN')]) {
           def scannerHome = tool 'SonarQubeScanner';
           env.PATH = "${scannerHome}\\bin;${env.PATH}";
