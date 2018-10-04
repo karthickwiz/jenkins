@@ -26,10 +26,16 @@ pipeline {
        }
   stage('SonarQube analysis') {
   withSonarQubeEnv('clsd') {
+      steps {
       withCredentials([string(credentialsId: 'SONAR_TOKEN', variable: 'SONAR_TOKEN')]) {
           def scannerHome = tool 'SonarQubeScanner';
           env.PATH = "${scannerHome}\\bin;${env.PATH}";
-        echo 'test'      }
+        echo 'test'      
+        dir('X:\\cce\\SmartLisaNightly\\git\\smartlisa\\SmartLisaFrontend') {
+              bat "sonar-scanner -Dsonar.login=$SONAR_TOKEN -Dproject.settings=..\\sonar_SmartLisaFrontend.properties -Dsonar.projectVersion=${env.BUILD_NUMBER}"
+          }
+      }
+      }
   }
 
    }
