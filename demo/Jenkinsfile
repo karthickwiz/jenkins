@@ -18,8 +18,8 @@ pipeline {
         stage('try') {
           steps {
              bat 'echo changing path....'
-             bat 'cd E:\\git\\repo\\demo'
-             bat 'gradle build'
+           //  bat 'cd E:\\git\\repo\\demo'
+          //   bat 'gradle build'
                bat 'echo builded....'    
             
           }
@@ -27,7 +27,7 @@ pipeline {
     }
     post { 
         always { 
-             echo 'I will always say Hello again!'
+             echo 'DONE!'
         }
     }
 }
