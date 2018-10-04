@@ -24,6 +24,16 @@ pipeline {
             
           }
        }
+         stage('SonarQube analysis') {
+    withSonarQubeEnv('clsd') {
+      // requires SonarQube Scanner for Gradle 2.1+
+      // It's important to add --info because of SONARJNKNS-281
+    //  sh './gradlew --info sonarqube'
+        bat ''./gradlew sonarqube \
+  -Dsonar.host.url=http://localhost:9000 \
+  -Dsonar.login=0d34880107386b3537a4106bba5af4bcb6be66e5''
+    }
+  }
     }
     post { 
         always { 
