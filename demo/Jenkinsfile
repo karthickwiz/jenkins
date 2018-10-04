@@ -31,6 +31,7 @@ pipeline {
       // It's important to add --info because of SONARJNKNS-281
    //   sh './gradlew --info sonarqube'
         echo 'sonar report'
+          bat 'gradle build --info sonarqube'
     }
   }
    }
