@@ -24,18 +24,17 @@ pipeline {
             
           }
        }
- stage('sonarqube') {
-                    steps {
-                             script {
-                                    def scannerHome = tool 'SonarQube_Scanner';
-                                    withSonarQubeEnv('SonarQube') {
-                                   // sh "${scannerHome}/bin/sonar-scanner\"
-                                        echo scannerHome
-                                    
-                                     }
-                               }
-                           }              
-                        }
+stage('Sonarqube analysis') {
+    steps {
+    script {
+             scannerHome = tool 'SonarScanner';
+        }
+     withSonarQubeEnv('SonarQube') {
+         bat "${scannerHome}/bin/sonar-scanner.bat" 
+    }
+
+    }
+        }
     }
     post { 
         always { 
