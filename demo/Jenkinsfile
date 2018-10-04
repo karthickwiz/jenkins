@@ -25,9 +25,9 @@ pipeline {
           }
        }
    stage('SonarQube analysis') {
+       def scannerHome = tool 'SonarQube Scanner 2.8';
         steps {
-            def scannerHome = tool 'SonarQube Scanner 2.8';
-    withSonarQubeEnv('clsd') {
+        withSonarQubeEnv('clsd') {
       // requires SonarQube Scanner for Gradle 2.1+
       // It's important to add --info because of SONARJNKNS-281
    //   sh './gradlew --info sonarqube'
