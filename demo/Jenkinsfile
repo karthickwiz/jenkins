@@ -1,15 +1,24 @@
 pipeline {
     agent any
     stages {
-        stage('Example') {
+        stage('Initialize') {
             steps {
-                echo 'Hello World'   
+                echo 'setting...'   
                  bat 'set'
             }
         }
        stage('build') {
           steps {
              bat 'echo building....'
+             bat 'gradle build'
+               bat 'echo builded....'    
+            
+          }
+       }
+        stage('try') {
+          steps {
+             bat 'echo changing path....'\
+             bat 'cd E:\git\repo\demo'
              bat 'gradle build'
                bat 'echo builded....'    
             
