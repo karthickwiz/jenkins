@@ -25,6 +25,7 @@ pipeline {
           }
        }
         stage('Build + SonarQube analysis') {
+            steps {
     def sqScannerMsBuildHome = tool 'Scanner for MSBuild 2.2'
     withSonarQubeEnv('clsd') {
       // Due to SONARMSBRU-307 value of sonar.host.url and credentials should be passed on command line
@@ -33,6 +34,7 @@ pipeline {
       bat "${sqScannerMsBuildHome}\\SonarQube.Scanner.MSBuild.exe end"
     }
   }
+        }
     }
     post { 
         always { 
