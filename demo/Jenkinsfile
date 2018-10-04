@@ -29,7 +29,7 @@ stage('Sonarqube analysis') {
     script {
            def scannerHome = tool 'SonarQube Scanner';
         }
-     withSonarQubeEnv('SonarQube') {
+     withSonarQubeEnv('clsd') {
          echo scannerHome
          bat "${scannerHome}/bin/sonar-scanner.bat" 
     }
