@@ -7,6 +7,17 @@ pipeline {
                  bat 'set'
             }
         }
+       stage('build') {
+          steps {
+             bat 'echo step1'
+             bat 'echo step2'
+             bat '''
+                echo 'Multiline'
+                echo 'Example'
+             '''
+             echo 'not using shell'
+          }
+       }
     }
     post { 
         always { 
