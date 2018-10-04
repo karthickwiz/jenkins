@@ -31,7 +31,7 @@ pipeline {
                                     withSonarQubeEnv('SonarQube') {
                                     sh "${scannerHome}/bin/sonar-scanner\
                                     -Dsonar.projectKey=clsd\
-                                    -Dsonar.projectName=clsd
+                                    -Dsonar.projectName=clsd"
                                      }
                                }
                            }              
