@@ -28,13 +28,13 @@ stage('Sonarqube analysis') {
     steps {
     script {
            def scannerHome = tool 'sonar-scanner-3.2.0.1227-windows';
-    }
+  
        
      withSonarQubeEnv('clsd') {
          echo scannerHome
          bat "${scannerHome}/bin/sonar-scanner.bat" 
     }
-
+  }
     }
         }
     }
