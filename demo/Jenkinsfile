@@ -27,7 +27,7 @@ pipeline {
 stage('Sonarqube analysis') {
     steps {
     script {
-           def scannerHome = tool 'SonarQube_Scanner';
+           def scannerHome = tool 'sonar-scanner-3.2.0.1227-windows';
     }
        
      withSonarQubeEnv('clsd') {
