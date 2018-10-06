@@ -36,7 +36,8 @@ stage('Sonarqube analysis') {
          echo scannerHome
          bat "${scannerHome}/bin/sonar-scanner.bat\
          -Dsonar.projectKey=clsd\
-         -Dsonar.projectName=clsd" 
+         -Dsonar.projectName=clsd\
+         -Dsonar.sources=src/main/java" 
     }
  
     }
