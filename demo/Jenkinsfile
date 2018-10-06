@@ -26,7 +26,14 @@ pipeline {
        }
 stage('Sonarqube analysis') {
     steps {
-   script {
+   echo "sonar report"
+ 
+    }
+        }
+    }
+    post { 
+        always { 
+            script {
           // requires SonarQube Scanner 2.8+
           scannerHome = tool 'SonarQube Scanner 2.8'
         }
@@ -39,12 +46,6 @@ stage('Sonarqube analysis') {
          -Dsonar.projectName=clsd\
          -Dsonar.sources=./demo/src/main/java/com/example/demo" 
     }
- 
-    }
-        }
-    }
-    post { 
-        always { 
              echo 'DONE!'
         }
     }
