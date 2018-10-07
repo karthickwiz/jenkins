@@ -46,7 +46,7 @@ stage('Sonarqube analysis') {
          -Dsonar.projectName=clsd\
          -Dsonar.sources=./demo/src/main/java/com/example/demo\
          -Dsonar.tests=./\
-         -Dsonar.test.inclusions=**/*Test*/**" 
+         -Dsonar.test.inclusions=**/*test*/**" 
     }
              echo 'DONE!'
         }
