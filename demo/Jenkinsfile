@@ -1,5 +1,8 @@
 pipeline {
     agent any
+     parameters {        
+    	choice(name: 'ENVIRONMENT', choices: 'DEVELOPMENT\nTEST\nSTAGING_WTC\nSTAGING_EDC\nPRODUCTION_WTC\nPRODUCTION_EDC', description: 'In which Environment?')
+     }
     stages {
         stage('Initialize') {
             steps {
@@ -9,6 +12,9 @@ pipeline {
         }
        stage('build') {
           steps {
+              
+              echo ENVIRONMENT
+              
              bat 'echo building....'
              bat 'gradle build'
                bat 'echo builded....'    
