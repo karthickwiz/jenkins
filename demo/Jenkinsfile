@@ -13,7 +13,7 @@ pipeline {
        stage('build') {
           steps {
               
-              echo ${ENVIRONMENT}
+              echo ENVIRONMENT
               
              bat 'echo building....'
              bat 'gradle build'
