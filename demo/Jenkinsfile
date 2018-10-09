@@ -41,7 +41,7 @@ stage('Sonarqube analysis') {
         always { 
             script {
           // requires SonarQube Scanner 2.8+
-          scannerHome = tool 'SonarQube Scanner 2.8'
+          scannerHome = tool 'sonar'
         }
   
        
