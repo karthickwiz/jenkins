@@ -15,25 +15,11 @@ pipeline {
             
           }
        }
-        stage('try') {
-          steps {
-             bat 'echo changing path....'
-           //  bat 'cd E:\\git\\repo\\demo'
-          //   bat 'gradle build'
-               bat 'echo builded....'    
-            
-          }
-       }
+    
 stage('Sonarqube analysis') {
     steps {
    echo "sonar report"
- 
-    }
-        }
-    }
-    post { 
-        always { 
-            script {
+  script {
           // requires SonarQube Scanner 2.8+
           scannerHome = tool 'sonar'
         }
@@ -48,6 +34,12 @@ stage('Sonarqube analysis') {
          -Dsonar.tests=./\
          -Dsonar.test.inclusions=**/*test*/**" 
     }
+    }
+        }
+    }
+    post { 
+        always { 
+           
              echo 'DONE!'
         }
     }
