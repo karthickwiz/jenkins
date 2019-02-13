@@ -28,10 +28,8 @@ stage('Sonarqube analysis') {
      withSonarQubeEnv('clsd') {
          echo scannerHome
          bat "${scannerHome}/bin/sonar-scanner.bat\
-         -Dsonar.projectKey=clsd\
-         -Dsonar.projectName=clsd\
-         -Dsonar.sources=${WORKSPACE}/demo/src/main/java"
-
+         -Dsonar.tests=./\
+         -Dsonar.test.inclusions=**/*test*/**" 
 
     }
     }
