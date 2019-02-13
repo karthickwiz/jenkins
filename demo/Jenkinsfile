@@ -23,14 +23,15 @@ stage('Sonarqube analysis') {
           // requires SonarQube Scanner 2.8+
           scannerHome = tool 'sonar'
         }
-  
-       
-     withSonarQubeEnv('clsd') {
+    
+      withSonarQubeEnv('clsd') {
          echo scannerHome
          bat "${scannerHome}/bin/sonar-scanner.bat\
+         -Dsonar.projectKey=clsd\
+         -Dsonar.projectName=clsd\
+         -Dsonar.sources=./demo/src/main/java/com/example/demo\
          -Dsonar.tests=./\
          -Dsonar.test.inclusions=**/*test*/**" 
-
     }
     }
         }
