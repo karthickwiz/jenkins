@@ -18,8 +18,8 @@ pipeline {
        } 
     post { 
         always { 
-           
-             echo 'CLSD build is completed Successfully!'
+           echo 'Doning Successfully!'	   
+	   junit 'C:/Users/karthick.k/Documents/e2eXML/*.xml'
         }
     }
 }
