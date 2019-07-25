@@ -1,0 +1,35 @@
+#!groovy
+def getData(){  
+    return "123"
+}
+pipeline {
+    agent any
+     parameters {    	
+        choice(name: 'ENVIRONMENT', choices: 'DEVELOPMENT\nTEST\nSTAGING_EDC\nSTAGING_WTC\nPRODUCTION_EDC\nPRODUCTION_WTC', description: 'Which Environment?')
+      }
+	   environment {
+
+        CREDENTIAL_ID = getData()
+        API_URL = "https://www.google.com"
+		ORG = "456"
+        SPACE = "DEVELOPMENT"
+		
+		}
+	  
+     stages {
+        stage('Initialize') {
+            steps {
+			echo 'hellooooo'
+          //      echo 'setting...'   
+         //        bat 'set'
+            }
+        }
+     
+    }
+    post { 
+        always { 
+           
+             echo 'CDUS build is Completed!'
+        }
+    }
+}
