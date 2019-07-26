@@ -1,6 +1,6 @@
 #!groovy
 def getData(){  
-    return "123"
+    return "testing"
 }
 pipeline {
     agent any
@@ -19,7 +19,17 @@ pipeline {
      stages {
         stage('Initialize') {
             steps {
+		    
+		    script{
+		     if (env.CREDENTIAL_ID) {
+                        withCredentials([usernamePassword(credentialsId: env.PAAS_PRODUCTION_WTC_CREDENTIAL_ID, passwordVariable: 'PASS', usernameVariable: 'USER')]) {
+                                env.PAAS_PRODUCTION_WTC_USERNAME = USER
+                                env.PAAS_PRODUCTION_WTC_PASSWORD = PASS
+                        }
+                    }
+		    }
 			echo 'hellooooo'
+		    echo ${CREDENTIAL_ID}
           //      echo 'setting...'   
          //        bat 'set'
             }
