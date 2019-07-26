@@ -29,7 +29,7 @@ pipeline {
                     }
 		    }
 			echo 'hellooooo'
-		    echo ${CREDENTIAL_ID}
+		
           //      echo 'setting...'   
          //        bat 'set'
             }
