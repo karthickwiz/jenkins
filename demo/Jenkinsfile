@@ -1,5 +1,9 @@
 pipeline {
     agent any
+    	parameters {
+  string(name: 'TAR', defaultValue: '123', description: 'TAR name')
+  string(name: 'ENV', defaultValue: 'dev', description: 'ENV name')
+}
      stages {
         stage('Initialize') {
             steps {
@@ -15,9 +19,12 @@ pipeline {
             
           }
        }
+         
     
 stage('Sonarqube analysis') {
     steps {
+        echo $TAR
+        echo $ENV
    echo "sonar report"
   script {
           // requires SonarQube Scanner 2.8+
