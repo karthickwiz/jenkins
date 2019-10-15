@@ -23,8 +23,8 @@ pipeline {
     
 stage('Sonarqube analysis') {
     steps {
-        echo ${TAR}
-        echo ${ENV}
+        echo $TAR
+        echo $ENV
    echo "sonar report"
   script {
           // requires SonarQube Scanner 2.8+
