@@ -1,10 +1,22 @@
 pipeline {
-    agent none    
+    agent any
+     parameters {    	
+        choice(name: 'ENVIRONMENT', choices: 'DEVELOPMENT\nTEST\nSTAGING_EDC\nSTAGING_WTC\nPRODUCTION_EDC\nPRODUCTION_WTC', description: 'Which Environment?')
+      }
+	  
+     stages {       
         stage('Example Test') {
     
             steps {
                 echo 'Hello, JDK'
                 sh 'java -version'
             }
+        }     
+    }
+    post { 
+        always { 
+           
+             echo 'Done!!!!!!'
         }
+    }
 }
