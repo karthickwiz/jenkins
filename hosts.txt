@@ -1,0 +1,7 @@
+rrr00351.abc.wipro.com,
+rrr00152.abc.wipro.com,
+rrr00153.abc.wipro.com,
+rrr00154.abc.wipro.com,
+rrr00549.abc.wipro.com,
+rrr00127.abc.wipro.com,
+rrr00128.abc.wipro.com
